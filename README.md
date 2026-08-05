@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fullstack Learning
 
-## Getting Started
+A personal repository for studying fullstack development.
 
-First, run the development server:
+This project contains my notes, code examples, and practical experiments while learning modern web technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The information is collected from official documentation, technical articles, and educational resources. All notes are rewritten and structured in my own way.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This repository may also be useful for other developers who are learning fullstack development and looking for structured materials, examples, and practical explanations.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Fullstack Learning (RU)
 
-## Learn More
+Личный репозиторий для изучения fullstack-разработки.
 
-To learn more about Next.js, take a look at the following resources:
+Здесь я собираю заметки, примеры кода и практические эксперименты во время изучения современных веб-технологий.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Информация собирается из официальной документации, технических статей и образовательных материалов. Все заметки переписаны и структурированы самостоятельно.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Этот репозиторий также может быть полезен другим разработчикам, которые изучают fullstack-разработку и ищут структурированные материалы, примеры и практические объяснения.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies / Технологии
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- JavaScript
+- TypeScript
+- React
+- Next.js
+- Node.js
+- Databases
+- Backend technologies
+- Web development
+
+---
+
+## Purpose / Цель проекта
+
+**EN:**  
+To create a personal reference for revising technologies and strengthening knowledge through practical examples.
+
+**RU:**  
+Создать удобную базу для повторения изученных технологий и закрепления знаний через практические примеры.
+
+---
+
+## Sources / Источники
+
+**EN:**  
+Information is based on open sources:
+- official documentation;
+- technical articles;
+- educational resources.
+
+**RU:**  
+Информация основана на открытых источниках:
+- официальная документация;
+- технические статьи;
+- образовательные материалы.
+
+---
+
+## License
+
+MIT
