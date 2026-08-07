@@ -1,0 +1,139 @@
+diff --git a/public/lessons/01-real-dom-and-virtual-dom.md b/public/lessons/01-real-dom-and-virtual-dom.md
+deleted file mode 100644
+index a72832b..0000000
+--- a/public/lessons/01-real-dom-and-virtual-dom.md
++++ /dev/null
+@@ -1 +0,0 @@
+-Hey
+diff --git a/public/lessons/02-state-and-properties-difference.md b/public/lessons/02-state-and-properties-difference.md
+deleted file mode 100644
+index 766873f..0000000
+--- a/public/lessons/02-state-and-properties-difference.md
++++ /dev/null
+@@ -1 +0,0 @@
+-Hey2
+diff --git a/public/lessons/03-react-hooks.md b/public/lessons/03-react-hooks.md
+deleted file mode 100644
+index 392c496..0000000
+--- a/public/lessons/03-react-hooks.md
++++ /dev/null
+@@ -1 +0,0 @@
+-Hey3
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index 9b78584..531345b 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -1,4 +1,4 @@
+-import { Home } from '@/src/widgets/home';
++import { Home } from "@/src/widgets/home";
+ 
+ export default function Page() {
+   return (
+diff --git a/src/entities/lesson/model/lessons.ts b/src/entities/lesson/model/lessons.ts
+index 9f2ccb5..b48257b 100644
+--- a/src/entities/lesson/model/lessons.ts
++++ b/src/entities/lesson/model/lessons.ts
+@@ -5,49 +5,29 @@ export const lessons: {
+   symbols: string;
+   date: Date;
+   slug: string;
+-  href: string;
++  href?: string;
+   searchIndex?: string;
+ }[] = [
+-    {
+-      lesson: 1,
+-      index: 0,
+-      title: 'Real DOM & Virtual DOM',
+-      symbols: '5К',
+-      date: new Date('2026-01-09'),
+-      slug: '01-real-dom-and-virtual-dom',
+-      href: '',
+-    },
+-    {
+-      lesson: 2,
+-      index: 1,
+-      title: 'State & Properties difference',
+-      symbols: '5К',
+-      date: new Date('2026-01-10'),
+-      slug: '02-state-and-properties-difference',
+-      href: '',
+-    },
+-    {
+-      lesson: 3,
+-      index: 2,
+-      title: 'React Hooks',
+-      symbols: '5К',
+-      date: new Date('2026-01-11'),
+-      slug: '03-react-hooks',
+-      href: '',
+-    },
+-    ...Array.from({ length: 500 }, (_, i) => ({
+-      lesson: i + 4,
+-      index: i + 3,
+-      title: 'PlaceHolder',
+-      symbols: '5К',
+-      date: new Date('2026-01-09'),
+-      slug: `/lesson/${i + 4}`,
+-      href: '',
+-    })),
+-  ];
++  {
++    lesson: 1,
++    index: 0,
++    title: "Secret Lesson",
++    symbols: "2797",
++    date: new Date("2026-08-06"),
++    slug: "01-secret-lesson",
++  },
++  {
++    lesson: 2,
++    index: 1,
++    title: "SemVer",
++    symbols: "2782",
++    date: new Date("2026-08-06"),
++    slug: "02-SemVer",
++  },
++];
+ 
+ lessons.forEach((ch) => {
+   ch.href = `/reading/${ch.slug}`;
+   ch.searchIndex =
+-    `${ch.lesson}, ${ch.title}, ${ch.date.toLocaleDateString('ru-RU')}`.toLowerCase();
++    `${ch.lesson}, ${ch.title}, ${ch.date.toLocaleDateString("ru-RU")}`.toLowerCase();
+ });
+diff --git a/src/widgets/reading/ui/ReadingContent.tsx b/src/widgets/reading/ui/ReadingContent.tsx
+index d99c320..6175de6 100644
+--- a/src/widgets/reading/ui/ReadingContent.tsx
++++ b/src/widgets/reading/ui/ReadingContent.tsx
+@@ -1,13 +1,13 @@
+-'use client';
++"use client";
+ 
+-import ReactMarkdown from 'react-markdown';
+-import remarkGfm from 'remark-gfm';
+-import rehypeSanitize from 'rehype-sanitize';
+-import { defaultSchema } from 'hast-util-sanitize';
++import ReactMarkdown from "react-markdown";
++import remarkGfm from "remark-gfm";
++import rehypeSanitize from "rehype-sanitize";
++import { defaultSchema } from "hast-util-sanitize";
+ 
+ const schema = {
+   ...defaultSchema,
+-  clobberPrefix: '',
++  clobberPrefix: "",
+ };
+ 
+ type ReadingContentProps = {
+@@ -20,7 +20,9 @@ export default function ReadingContent({
+   className,
+ }: ReadingContentProps) {
+   return (
+-    <div className={className}>
++    <div
++      className={`${className}, [&_p]:my-2 [&_h1]:mb-4 [&_h1]:font-bold [&_h2]:font-semibold [&_h2]:my-4 [&_h3]:my-2 [&_h3]:font-medium [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:ml-1 [&_hr]:w-[97.5%] mx-2`}
++    >
+       <ReactMarkdown
+         remarkPlugins={[remarkGfm]}
+         rehypePlugins={[[rehypeSanitize, schema]]}

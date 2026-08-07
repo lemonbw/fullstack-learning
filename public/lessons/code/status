@@ -1,0 +1,20 @@
+On branch chore/content-update
+Your branch is up to date with 'origin/chore/content-update'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    ../01-real-dom-and-virtual-dom.md
+	deleted:    ../02-state-and-properties-difference.md
+	deleted:    ../03-react-hooks.md
+	modified:   ../../../src/app/page.tsx
+	modified:   ../../../src/entities/lesson/model/lessons.ts
+	modified:   ../../../src/widgets/reading/ui/ReadingContent.tsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../01-frontend-test.md
+	../02-SemVer.md
+	./
+
+no changes added to commit (use "git add" and/or "git commit -a")
