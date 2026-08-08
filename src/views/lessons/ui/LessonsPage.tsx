@@ -1,9 +1,9 @@
-import { HomePage } from "@/src/views/home";
+import { LessonList } from "@/src/widgets/lesson-list";
 
-export default function Page() {
+export const LessonsPage = () => {
   return (
     <main className="flex flex-col items-center justify-center overflow-x-hidden bg-white dark:bg-[#010407]">
-      <HomePage />
+      <LessonList />
     </main>
   );
-}
+};
