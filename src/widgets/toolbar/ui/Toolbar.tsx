@@ -1,22 +1,21 @@
-import { useEffect } from 'react';
-import { useMedia } from 'use-media';
+import { useEffect, useRef } from "react";
+import { useMedia } from "use-media";
 import {
   FontSelector,
   FontSizeSelector,
   AlignSelector,
-} from '@/src/features/text-settings/ui';
-import { FullscreenButton } from '@/src/features/fullscreen/ui/FullscreenButton';
-import { useFullscreen } from '@/src/features/fullscreen/model/useFullscreen';
-import { useReadingState } from '../../reading/model/useReadingState';
+} from "@/src/features/text-settings";
+import { FullscreenButton } from "@/src/features/fullscreen";
+import { useFullscreen } from "@/src/features/fullscreen";
+import { useTextSettings } from "@/src/features/text-settings";
 
 type ToolbarProps = {
   LessonSelector?: React.ReactNode;
   children: React.ReactNode;
 };
 
-export function Toolbar({ LessonSelector, children }: ToolbarProps) {
+export const Toolbar = ({ LessonSelector, children }: ToolbarProps) => {
   const {
-    readingSection,
     currentSize,
     setCurrentSize,
     currentFont,
@@ -25,7 +24,9 @@ export function Toolbar({ LessonSelector, children }: ToolbarProps) {
     setFontQuery,
     currentAlign,
     setCurrentAlign,
-  } = useReadingState();
+  } = useTextSettings();
+
+  const readingSection = useRef<HTMLDivElement | null>(null);
 
   const isLarge = useMedia({ minWidth: 1024 });
 
@@ -45,7 +46,7 @@ export function Toolbar({ LessonSelector, children }: ToolbarProps) {
       className={`relative mx-auto mt-12 flex h-[100vh] w-[80vw] flex-col overflow-y-hidden lg:mt-8`}
     >
       <div
-        className={`relative -mb-45 h-62 rotate-x-180 *:rotate-x-180 ${fullscreen ? 'w-[100vw]' : 'w-[80vw]'} overflow-x-auto ${fullscreen ? 'lg:mt-4' : ''}`}
+        className={`relative -mb-45 h-62 rotate-x-180 *:rotate-x-180 ${fullscreen ? "w-[100vw]" : "w-[80vw]"} overflow-x-auto ${fullscreen ? "lg:mt-4" : ""}`}
       >
         <div
           className={`absolute bottom-0 mb-2 -ml-[0.225rem] flex h-10 w-[160vw] flex-none items-center gap-1 lg:-ml-1 lg:w-full`}
@@ -72,7 +73,7 @@ export function Toolbar({ LessonSelector, children }: ToolbarProps) {
         </div>
       </div>
       <div
-        className={`-mt-3 flex-1 overflow-hidden rounded-2xl border-2 ${fullscreen ? 'mb-4 lg:mb-0' : ''} bg-white dark:bg-black`}
+        className={`-mt-3 flex-1 overflow-hidden rounded-2xl border-2 ${fullscreen ? "mb-4 lg:mb-0" : ""} bg-white dark:bg-black`}
       >
         <div
           className="h-full p-1"
@@ -87,4 +88,4 @@ export function Toolbar({ LessonSelector, children }: ToolbarProps) {
       </div>
     </section>
   );
-}
+};

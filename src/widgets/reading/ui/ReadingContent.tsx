@@ -15,10 +15,7 @@ type ReadingContentProps = {
   className?: string;
 };
 
-export default function ReadingContent({
-  content,
-  className,
-}: ReadingContentProps) {
+export const ReadingContent = ({ content, className }: ReadingContentProps) => {
   return (
     <div
       className={`${className}, h-[90vh] overflow-y-auto [&_p]:my-2 [&_h1]:mb-4 [&_h1]:font-bold [&_h2]:font-semibold [&_h2]:my-4 [&_h3]:my-2 [&_h3]:font-medium [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:ml-1 [&_hr]:w-[97.5%] mx-2`}
@@ -31,4 +28,4 @@ export default function ReadingContent({
       </ReactMarkdown>
     </div>
   );
-}
+};

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import SearchInput from '@/src/shared/ui/SearchInput';
-import { useLessonListState } from '../model/useLessonListState';
-import { LessonTable } from '@/src/entities/lesson/ui/LessonTable';
-import { LessonSortButton } from '@/src/features/lesson-sort/ui/LessonSortButton';
-import { LessonPagination } from '@/src/features/lesson-pagination/ui/LessonPagination';
+import { useState } from "react";
+import { SearchInput } from "@/src/shared/ui/SearchInput";
+import { useLessonListState } from "../model/useLessonListState";
+import { LessonTable } from "@/src/entities/lesson";
+import { LessonSortButton } from "@/src/features/lesson-sort";
+import { LessonPagination } from "@/src/features/lesson-pagination";
 
-export default function LessonList() {
+export const LessonList = () => {
   const {
     query,
     setQuery,
@@ -23,8 +23,8 @@ export default function LessonList() {
   } = useLessonListState();
 
   const [direction, setDirection] = useState<
-    'toRight' | 'toLeft' | 'toDown' | 'toUp'
-  >('toRight');
+    "toRight" | "toLeft" | "toDown" | "toUp"
+  >("toRight");
   const [listPhase, setListPhase] = useState(0);
 
   const activateTransition = (
@@ -39,26 +39,26 @@ export default function LessonList() {
   };
 
   const handleSortChange = () => {
-    activateTransition(isAsc === 'asc' ? 'toUp' : 'toDown', () => {
-      setIsAsc((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+    activateTransition(isAsc === "asc" ? "toUp" : "toDown", () => {
+      setIsAsc((prev) => (prev === "asc" ? "desc" : "asc"));
     });
   };
 
   const handlePaginationAction = (
-    action: 'start' | 'prev' | 'next' | 'end' | number,
+    action: "start" | "prev" | "next" | "end" | number,
   ) => {
-    if (action === 'start') {
-      activateTransition('toRight', () => setPage(0));
-    } else if (action === 'prev') {
-      activateTransition('toRight', () => setPage((p) => Math.max(p - 1, 0)));
-    } else if (action === 'next') {
-      activateTransition('toLeft', () =>
+    if (action === "start") {
+      activateTransition("toRight", () => setPage(0));
+    } else if (action === "prev") {
+      activateTransition("toRight", () => setPage((p) => Math.max(p - 1, 0)));
+    } else if (action === "next") {
+      activateTransition("toLeft", () =>
         setPage((p) => Math.min(p + 1, pages.length - 1)),
       );
-    } else if (action === 'end') {
-      activateTransition('toLeft', () => setPage(pages.length - 1));
-    } else if (typeof action === 'number') {
-      activateTransition(action > page ? 'toLeft' : 'toRight', () =>
+    } else if (action === "end") {
+      activateTransition("toLeft", () => setPage(pages.length - 1));
+    } else if (typeof action === "number") {
+      activateTransition(action > page ? "toLeft" : "toRight", () =>
         setPage(action),
       );
     }
@@ -93,4 +93,4 @@ export default function LessonList() {
       </div>
     </section>
   );
-}
+};
