@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
-import { useMedia } from 'use-media';
+import { useState, useRef, useEffect } from "react";
+import { useMedia } from "use-media";
 
-export function useHeaderState() {
-  const isDark = useMedia({ 'prefers-color-scheme': 'dark' })
+export const useHeaderState = () => {
+  const isDark = useMedia({ "prefers-color-scheme": "dark" });
   const [hiddenHeader, setHiddenHeader] = useState(false);
   const [hiddenNavigation, setHiddenNavigation] = useState(true);
   const prevScrollY = useRef(0);
@@ -14,9 +14,15 @@ export function useHeaderState() {
       prevScrollY.current = currentScroll;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return { isDark, hiddenHeader, setHiddenHeader, hiddenNavigation, setHiddenNavigation };
-}
+  return {
+    isDark,
+    hiddenHeader,
+    setHiddenHeader,
+    hiddenNavigation,
+    setHiddenNavigation,
+  };
+};

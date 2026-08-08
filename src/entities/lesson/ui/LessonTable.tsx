@@ -1,20 +1,20 @@
-'use client';
-import { useState, useRef } from 'react';
-import Link from 'next/link';
+"use client";
+import { useState, useRef } from "react";
+import Link from "next/link";
 
 type LessonTableProps = {
   lessons: any[];
   emptyRowsCount: number;
   listPhase: number;
-  direction: 'toRight' | 'toLeft' | 'toDown' | 'toUp';
+  direction: "toRight" | "toLeft" | "toDown" | "toUp";
 };
 
-export function LessonTable({
+export const LessonTable = ({
   lessons,
   emptyRowsCount,
   listPhase,
   direction,
-}: LessonTableProps) {
+}: LessonTableProps) => {
   const NO_HOVER = -2;
   const [hoveredIndex, setHovered] = useState(NO_HOVER);
   const rowHoverDelayRef = useRef<NodeJS.Timeout | null>(null);
@@ -29,38 +29,38 @@ export function LessonTable({
   };
 
   const getLinkClasses = (index: number) => {
-    const base = 'block w-full h-full z-10 transition-all duration-500';
+    const base = "block w-full h-full z-10 transition-all duration-500";
     const color =
       hoveredIndex === index
-        ? 'text-white dark:text-black duration-1000 outline-black'
-        : 'text-black dark:text-white outline-white';
-    const opacity = listPhase === 0 ? 'opacity-100' : 'opacity-0';
+        ? "text-white dark:text-black duration-1000 outline-black"
+        : "text-black dark:text-white outline-white";
+    const opacity = listPhase === 0 ? "opacity-100" : "opacity-0";
 
     const transMap = {
       toRight:
         listPhase === 1
-          ? 'translate-x-[30px]'
+          ? "translate-x-[30px]"
           : listPhase === 2
-            ? '-translate-x-[30px]'
-            : 'translate-x-0',
+            ? "-translate-x-[30px]"
+            : "translate-x-0",
       toLeft:
         listPhase === 1
-          ? '-translate-x-[30px]'
+          ? "-translate-x-[30px]"
           : listPhase === 2
-            ? 'translate-x-[30px]'
-            : 'translate-x-0',
+            ? "translate-x-[30px]"
+            : "translate-x-0",
       toDown:
         listPhase === 1
-          ? 'translate-y-[10px]'
+          ? "translate-y-[10px]"
           : listPhase === 2
-            ? '-translate-y-[10px]'
-            : 'translate-y-0',
+            ? "-translate-y-[10px]"
+            : "translate-y-0",
       toUp:
         listPhase === 1
-          ? '-translate-y-[10px]'
+          ? "-translate-y-[10px]"
           : listPhase === 2
-            ? 'translate-y-[10px]'
-            : 'translate-y-0',
+            ? "translate-y-[10px]"
+            : "translate-y-0",
     };
 
     return `${base} ${color} ${opacity} ${transMap[direction]}`;
@@ -90,7 +90,7 @@ export function LessonTable({
                 {c.volume}
               </Link>
               <span
-                className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 lg:duration-1000 dark:bg-white ${hoveredIndex === c.index ? 'w-[80vw]' : 'w-0'}`}
+                className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 lg:duration-1000 dark:bg-white ${hoveredIndex === c.index ? "w-[80vw]" : "w-0"}`}
               />
             </td>
             <td className="relative z-10 w-6 py-2 lg:w-[7rem] lg:px-4">
@@ -110,7 +110,7 @@ export function LessonTable({
             </td>
             <td className="relative z-10 w-30 py-2 lg:w-[8rem] lg:px-4">
               <Link href={c.href} className={getLinkClasses(c.index)}>
-                {c.date.toLocaleDateString('ru-RU')}
+                {c.date.toLocaleDateString("ru-RU")}
               </Link>
             </td>
           </tr>
@@ -123,4 +123,4 @@ export function LessonTable({
       </tbody>
     </table>
   );
-}
+};

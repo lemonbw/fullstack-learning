@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
 };
 
-export function Providers({ children }: Props) {
+export const Providers = ({ children }: Props) => {
   return <>{children}</>;
-}
+};

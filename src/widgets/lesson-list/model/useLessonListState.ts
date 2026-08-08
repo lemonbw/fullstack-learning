@@ -3,7 +3,7 @@ import { useMedia } from "use-media";
 import { chunkArray } from "@/src/shared/lib/arrays";
 import { lessonsSort } from "@/src/entities/lesson";
 
-export function useLessonListState() {
+export const useLessonListState = () => {
   const [pageSize, setPageSize] = useState(20);
 
   const [panelSize, setPanelSize] = useState(8);
@@ -67,4 +67,4 @@ export function useLessonListState() {
     panelSize,
     pageSize,
   };
-}
+};

@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { useParams } from 'next/navigation';
-import { useClickOutside } from '@/src/shared/hooks/useClickOutside';
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useParams } from "next/navigation";
+import { useClickOutside } from "@/src/shared/hooks/useClickOutside";
 
-export function useLessonDropdown(totalCount: number) {
+export const useLessonDropdown = (totalCount: number) => {
   const params = useParams();
   const slug = params?.slug;
 
@@ -63,7 +63,7 @@ export function useLessonDropdown(totalCount: number) {
 
     listRef.current.scrollTo({
       top: lessonRef.current.offsetTop,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }, [isOpen, slug]);
 
@@ -82,4 +82,4 @@ export function useLessonDropdown(totalCount: number) {
     lessonRef,
     slug,
   };
-}
+};

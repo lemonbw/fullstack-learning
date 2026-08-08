@@ -3,7 +3,7 @@ import { useDeferredValue } from "react";
 import { useParams } from "next/navigation";
 import { lessons } from "@/src/entities/lesson";
 
-export function useLessonSearch() {
+export const useLessonSearch = () => {
   const params = useParams();
   const slug = params?.slug;
 
@@ -32,4 +32,4 @@ export function useLessonSearch() {
     isSearching,
     currentLesson,
   };
-}
+};

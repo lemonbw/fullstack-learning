@@ -1,18 +1,18 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-const lessonsPath = path.join(process.cwd(), 'public/lessons');
+const lessonsPath = path.join(process.cwd(), "public/lessons");
 
-export function getAllLessons() {
+export const getAllLessons = () => {
   return fs
     .readdirSync(lessonsPath)
-    .filter((file) => file.endsWith('.md'))
-    .map((file) => file.replace('.md', ''))
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => file.replace(".md", ""))
     .sort();
-}
+};
 
-export function getLesson(slug: string) {
+export const getLesson = (slug: string) => {
   const filePath = path.join(lessonsPath, `${slug}.md`);
 
-  return fs.readFileSync(filePath, 'utf8');
-}
+  return fs.readFileSync(filePath, "utf8");
+};

@@ -1,11 +1,11 @@
-export function isFontRendered(font: string) {
-  const text = 'mmmmmmmmmmlli';
-  const fontSize = '72px';
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
+export const isFontRendered = (font: string) => {
+  const text = "mmmmmmmmmmlli";
+  const fontSize = "72px";
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
   if (!context) return false;
 
-  const baseFonts = ['monospace', 'serif', 'sans-serif'];
+  const baseFonts = ["monospace", "serif", "sans-serif"];
 
   const defaultWidths = baseFonts.map((base) => {
     context.font = `${fontSize} ${base}`;
@@ -17,4 +17,4 @@ export function isFontRendered(font: string) {
     const width = context.measureText(text).width;
     return width !== defaultWidths[i];
   });
-}
+};

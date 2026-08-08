@@ -1,20 +1,20 @@
-'use client';
-import { useEffect } from 'react';
-import { useMedia } from 'use-media';
-import { fontSizes } from '@/src/shared/lib/fonts/fontSizes';
-import { useFontSizeSelectorState } from '@/src/features/text-settings/model';
-import { useClickOutside } from '@/src/shared/hooks/useClickOutside';
-import { parseFontSize } from '@/src/shared/lib/fonts';
+"use client";
+import { useEffect } from "react";
+import { useMedia } from "use-media";
+import { fontSizes } from "@/src/shared/lib/fonts/fontSizes";
+import { useFontSizeSelectorState } from "@/src/features/text-settings/model";
+import { useClickOutside } from "@/src/shared/hooks/useClickOutside";
+import { parseFontSize } from "@/src/shared/lib/fonts";
 
 type FontSizeSelectorProps = {
   currentSize: number;
   setCurrentSizeAction: (size: number) => void;
 };
 
-export function FontSizeSelector({
+export const FontSizeSelector = ({
   currentSize,
   setCurrentSizeAction,
-}: FontSizeSelectorProps) {
+}: FontSizeSelectorProps) => {
   const {
     isHidden,
     setIsHidden,
@@ -29,12 +29,12 @@ export function FontSizeSelector({
   const isLarge = useMedia({ minWidth: 1024 });
 
   useEffect(() => {
-    if (!isLarge) setTempSize('16');
-    else setTempSize('20');
+    if (!isLarge) setTempSize("16");
+    else setTempSize("20");
   }, [isLarge, setTempSize]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       const parsed = parseFontSize(tempSize);
       if (parsed !== null) {
         setCurrentSizeAction(parsed);
@@ -63,7 +63,7 @@ export function FontSizeSelector({
       </div>
       <div
         className={`absolute top-10 left-0 z-50 flex h-48 w-17 flex-col overflow-y-auto rounded border-1 bg-white shadow dark:bg-black ${
-          isHidden ? 'hidden' : ''
+          isHidden ? "hidden" : ""
         }`}
       >
         {fontSizes.map((size) => (
@@ -77,10 +77,10 @@ export function FontSizeSelector({
             }}
             onMouseEnter={() => setHoveredSize(size)}
             onMouseLeave={() => setHoveredSize(0)}
-            className={`relative border-b-2 px-2 py-1 text-left duration-500 ease-in-out lg:hover:text-white lg:dark:hover:text-black ${currentSize === size ? 'font-bold' : ''}`}
+            className={`relative border-b-2 px-2 py-1 text-left duration-500 ease-in-out lg:hover:text-white lg:dark:hover:text-black ${currentSize === size ? "font-bold" : ""}`}
           >
             <span
-              className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 dark:bg-white ${hoveredSize === size ? 'lg:w-full' : 'w-0'}`}
+              className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 dark:bg-white ${hoveredSize === size ? "lg:w-full" : "w-0"}`}
             ></span>
 
             {size}
@@ -89,4 +89,4 @@ export function FontSizeSelector({
       </div>
     </div>
   );
-}
+};

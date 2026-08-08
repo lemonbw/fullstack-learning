@@ -1,15 +1,15 @@
-'use client';
-import { useState, useRef } from 'react';
+"use client";
+import { useState, useRef } from "react";
 
 type LessonSortButtonProps = {
-  isAsc: 'asc' | 'desc';
+  isAsc: "asc" | "desc";
   onSortClick: () => void;
 };
 
-export function LessonSortButton({
+export const LessonSortButton = ({
   isAsc,
   onSortClick,
-}: LessonSortButtonProps) {
+}: LessonSortButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
   const hoverDelayRef = useRef<NodeJS.Timeout | null>(null);
@@ -38,14 +38,14 @@ export function LessonSortButton({
       <span className="-ml-5 text-[1rem] lg:text-[1.7rem]">
         Сортировка
         <span
-          className={`absolute bottom-[-0.05rem] ml-0.5 inline-block text-[1.05rem] transition-transform duration-800 lg:bottom-[-0.5rem] lg:text-[2.1rem] ${isAsc === 'asc' ? 'rotate-0' : '-rotate-180'}`}
+          className={`absolute bottom-[-0.05rem] ml-0.5 inline-block text-[1.05rem] transition-transform duration-800 lg:bottom-[-0.5rem] lg:text-[2.1rem] ${isAsc === "asc" ? "rotate-0" : "-rotate-180"}`}
         >
           ▼
         </span>
       </span>
       <span
-        className={`absolute bottom-0 -left-5 hidden h-[2px] origin-left transition-all duration-500 lg:inline-block ${isHovered ? 'w-[130%]' : 'w-0'} ${isPressed ? 'bg-white dark:bg-black' : 'bg-black dark:bg-white'}`}
+        className={`absolute bottom-0 -left-5 hidden h-[2px] origin-left transition-all duration-500 lg:inline-block ${isHovered ? "w-[130%]" : "w-0"} ${isPressed ? "bg-white dark:bg-black" : "bg-black dark:bg-white"}`}
       />
     </button>
   );
-}
+};

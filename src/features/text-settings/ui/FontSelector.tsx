@@ -11,12 +11,12 @@ type FontSelectorProps = {
   setQuery: (query: string) => void;
 };
 
-export function FontSelector({
+export const FontSelector = ({
   currentFont,
   setCurrentFont,
   query,
   setQuery,
-}: FontSelectorProps) {
+}: FontSelectorProps) => {
   const {
     isHidden,
     setIsHidden,
@@ -103,4 +103,4 @@ export function FontSelector({
       </div>
     </div>
   );
-}
+};
