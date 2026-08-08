@@ -1,9 +1,9 @@
-'use client';
-import { Toolbar } from '../../toolbar/ui/Toolbar';
-import ReadingContent from '../ui/ReadingContent';
-import LessonSelector from '@/src/features/lesson-selector/ui/LessonSelector';
+"use client";
+import { Toolbar } from "@/src/widgets/toolbar";
+import { ReadingContent } from "@/src/widgets/reading";
+import { LessonSelector } from "@/src/features/lesson-selector";
 
-export default function ReadingPage({ content }: { content: string }) {
+export const ReadingPage = ({ content }: { content: string }) => {
   return (
     <main className="flex flex-col items-center justify-center overflow-x-hidden bg-white dark:bg-[#010407]">
       <Toolbar LessonSelector={<LessonSelector />}>
@@ -14,4 +14,4 @@ export default function ReadingPage({ content }: { content: string }) {
       </Toolbar>
     </main>
   );
-}
+};

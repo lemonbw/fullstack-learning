@@ -1,9 +1,9 @@
-import { getAllLessons, getLesson } from '@/src/entities/lesson/api/storage';
-import ReadingPage from '@/src/widgets/reading/templates/ReadingPage';
-import { notFound } from 'next/navigation';
+import { getAllLessons, getLesson } from "@/src/entities/lesson/server";
+import { ReadingPage } from "@/src/views/reading";
+import { notFound } from "next/navigation";
 
 export const dynamicParams = false;
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   const chapters = getAllLessons();
@@ -16,7 +16,6 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
   const content = getLesson(slug);
 
   if (!content) {

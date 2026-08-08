@@ -1,11 +1,5 @@
-import { Panel } from '@/src/widgets/home/ui/Panel';
-import LessonList from '@/src/widgets/lesson-list/ui/LessonList';
+import { LessonsPage } from "@/src/views/lessons";
 
 export default function Lessons() {
-  return (
-    <main className="flex flex-col items-center justify-center overflow-x-hidden bg-white dark:bg-[#010407]">
-      <Panel />
-      <LessonList />
-    </main>
-  );
+  return <LessonsPage />;
 }

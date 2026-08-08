@@ -1,8 +1,8 @@
-import { useDeferredValue } from 'react';
-import { useAvailableFonts } from '@/src/shared/hooks/fonts/useAvailableFonts';
-import { useFontSelectorState } from '@/src/features/text-settings/model/';
-import { useClickOutside } from '@/src/shared/hooks/useClickOutside';
-import SearchInput from '@/src/shared/ui/SearchInput';
+import { useDeferredValue } from "react";
+import { useAvailableFonts } from "@/src/shared/hooks/fonts/useAvailableFonts";
+import { useFontSelectorState } from "@/src/features/text-settings";
+import { useClickOutside } from "@/src/shared/hooks/useClickOutside";
+import { SearchInput } from "@/src/shared/ui/SearchInput";
 
 type FontSelectorProps = {
   currentFont: string;
@@ -32,7 +32,7 @@ export function FontSelector({
   const divRef = useClickOutside<HTMLDivElement>(() => setIsHidden(true));
 
   const className =
-    'w-[115px] h-full px-1 lg:w-full outline-none! rounded-l-sm focus:shadow-[inset_0_0_0_1.5px_theme(colors.white)] bg-white dark:bg-black';
+    "w-[115px] h-full px-1 lg:w-full outline-none! rounded-l-sm focus:shadow-[inset_0_0_0_1.5px_theme(colors.white)] bg-white dark:bg-black";
 
   return (
     <div
@@ -58,22 +58,22 @@ export function FontSelector({
 
       <div
         className={`absolute top-10 left-0 z-50 flex h-48 w-full flex-col overflow-y-auto rounded border-1 bg-white text-black shadow dark:bg-black dark:text-white ${
-          isHidden ? 'hidden' : ''
+          isHidden ? "hidden" : ""
         }`}
       >
         <button
           key="toggle-hidden"
           className="relative border-b-2 px-2 py-1 text-left duration-500 ease-in-out lg:hover:text-white lg:dark:hover:text-black"
           onClick={() => setIsHiddenFonts(!isHiddenFonts)}
-          onMouseEnter={() => setHoveredFont('toggle-hidden')}
+          onMouseEnter={() => setHoveredFont("toggle-hidden")}
           onMouseLeave={() => setHoveredFont(null)}
         >
           {isHiddenFonts
-            ? 'Недоступные шрифты скрыты'
-            : 'Недоступные отображены'}
+            ? "Недоступные шрифты скрыты"
+            : "Недоступные отображены"}
           <span
             className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 dark:bg-white ${
-              hoveredFont === 'toggle-hidden' ? 'w-0 lg:w-full' : 'w-0'
+              hoveredFont === "toggle-hidden" ? "w-0 lg:w-full" : "w-0"
             }`}
           ></span>
         </button>
@@ -89,12 +89,12 @@ export function FontSelector({
             onMouseEnter={() => setHoveredFont(font)}
             onMouseLeave={() => setHoveredFont(null)}
             className={`relative border-b-2 px-2 py-1 text-left duration-500 ease-in-out lg:hover:text-white lg:dark:hover:text-black ${
-              currentFont === font ? 'font-bold' : ''
+              currentFont === font ? "font-bold" : ""
             }`}
           >
             <span
               className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 dark:bg-white ${
-                hoveredFont === font ? 'w-0 lg:w-full' : 'w-0'
+                hoveredFont === font ? "w-0 lg:w-full" : "w-0"
               }`}
             ></span>
             {font}

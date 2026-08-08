@@ -1,63 +1,63 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
-import Header from '@/src/widgets/header/ui/Header';
-import Footer from '@/src/widgets/footer/ui/Footer';
-import { Providers } from './providers';
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/src/widgets/header";
+import { Footer } from "@/src/widgets/footer";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin', 'cyrillic'],
+  variable: "--font-geist-sans",
+  subsets: ["latin", "cyrillic"],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin', 'cyrillic'],
+  variable: "--font-geist-mono",
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Fullstack Learning — Leon Gray',
-    template: '%s | Fullstack Learning',
+    default: "Fullstack Learning — Leon Gray",
+    template: "%s | Fullstack Learning",
   },
   description:
-    'Интерактивный сайт-сборник уроков, заметок и практических материалов по изучению fullstack-разработки: JavaScript, TypeScript, React, Next.js, Node.js и базы данных.',
+    "Интерактивный сайт-сборник уроков, заметок и практических материалов по изучению fullstack-разработки: JavaScript, TypeScript, React, Next.js, Node.js и базы данных.",
   keywords: [
-    'fullstack',
-    'frontend',
-    'backend',
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Next.js',
-    'Node.js',
-    'web development',
-    'программирование',
-    'обучение разработке',
+    "fullstack",
+    "frontend",
+    "backend",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "web development",
+    "программирование",
+    "обучение разработке",
   ],
   authors: [
     {
-      name: 'Leon Gray',
+      name: "Leon Gray",
     },
   ],
-  creator: 'Leon Gray',
-  publisher: 'Leon Gray',
+  creator: "Leon Gray",
+  publisher: "Leon Gray",
 
   openGraph: {
-    title: 'Fullstack Learning — Leon Gray',
+    title: "Fullstack Learning — Leon Gray",
     description:
-      'Интерактивный сайт с уроками и заметками по fullstack-разработке.',
-    type: 'website',
-    locale: 'ru_RU',
-    siteName: 'Fullstack Learning',
+      "Интерактивный сайт с уроками и заметками по fullstack-разработке.",
+    type: "website",
+    locale: "ru_RU",
+    siteName: "Fullstack Learning",
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'Fullstack Learning — Leon Gray',
+    card: "summary_large_image",
+    title: "Fullstack Learning — Leon Gray",
     description:
-      'Изучение fullstack-разработки через интерактивные уроки и практические заметки.',
-    creator: '@LeonGray',
+      "Изучение fullstack-разработки через интерактивные уроки и практические заметки.",
+    creator: "@LeonGray",
   },
 
   robots: {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     follow: true,
   },
 
-  category: 'education',
+  category: "education",
 };
 
 export default function RootLayout({

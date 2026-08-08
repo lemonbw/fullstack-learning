@@ -1,7 +1,7 @@
-import { useState, useMemo, useEffect, useDeferredValue } from 'react';
-import { useMedia } from 'use-media';
-import { chunkLessons } from '@/src/entities/lesson/lib/chunkLessons';
-import { lessonsSort } from '@/src/entities/lesson/lib/lessonsSort';
+import { useState, useMemo, useEffect, useDeferredValue } from "react";
+import { useMedia } from "use-media";
+import { chunkArray } from "@/src/shared/lib/arrays";
+import { lessonsSort } from "@/src/entities/lesson";
 
 export function useLessonListState() {
   const [pageSize, setPageSize] = useState(20);
@@ -20,10 +20,10 @@ export function useLessonListState() {
     }
   }, [isLarge, setPanelSize, setPageSize]);
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
 
-  const [isAsc, setIsAsc] = useState<'asc' | 'desc'>('asc');
+  const [isAsc, setIsAsc] = useState<"asc" | "desc">("asc");
   const [page, setPage] = useState(0);
 
   const sortedLessons = useMemo(() => lessonsSort(isAsc), [isAsc]);
@@ -37,7 +37,7 @@ export function useLessonListState() {
   const listSource = query ? filteredLessons : sortedLessons;
 
   const pages = useMemo(
-    () => chunkLessons(listSource, pageSize),
+    () => chunkArray(listSource, pageSize),
     [listSource, pageSize],
   );
 
