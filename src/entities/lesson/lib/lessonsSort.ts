@@ -1,7 +1,7 @@
-import { lessons } from '@/src/entities/lesson/model/lessons';
+import { lessons } from "../model/lessons";
 
-export const lessonsSort = (order: 'asc' | 'desc') => {
+export const lessonsSort = (order: "asc" | "desc") => {
   return [...lessons].sort((a, b) =>
-    order === 'asc' ? a.index - b.index : b.index - a.index,
+    order === "asc" ? a.index - b.index : b.index - a.index,
   );
 };
