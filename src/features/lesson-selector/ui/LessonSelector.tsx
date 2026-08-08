@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import { lessons } from '@/src/entities/lesson/model/lessons';
-import SearchInput from '@/src/shared/ui/SearchInput';
+import Link from "next/link";
+import { lessons } from "@/src/entities/lesson";
+import { SearchInput } from "@/src/shared/ui/SearchInput";
 import {
   useLessonSearch,
   useLessonDropdown,
-} from '@/src/features/lesson-selector/model';
+} from "@/src/features/lesson-selector/model";
 
-export default function LessonSelector() {
+export const LessonSelector = () => {
   const { query, setQuery, listSource, currentLesson } = useLessonSearch();
 
   const {
@@ -25,19 +25,19 @@ export default function LessonSelector() {
   } = useLessonDropdown(lessons.length);
 
   const className =
-    'absolute left-0 w-[158px] -mt-[1px] p-1 h-[33px] outline-none! rounded-l-sm focus:shadow-[inset_0_0_0_1.5px_theme(colors.white)]';
+    "absolute left-0 w-[158px] -mt-[1px] p-1 h-[33px] outline-none! rounded-l-sm focus:shadow-[inset_0_0_0_1.5px_theme(colors.white)]";
 
   const placeholder = currentLesson
     ? currentLesson.title
-    : 'Lesson, title, date';
+    : "Lesson, title, date";
 
   const getLinkClasses = (lessonIndex: number) => {
-    const base = 'block w-full h-full z-10 transition-all duration-500';
+    const base = "block w-full h-full z-10 transition-all duration-500";
 
     const color =
       hoveredLesson === lessonIndex
-        ? 'text-white outline-white dark:text-black duration-1000 dark:outline-black'
-        : 'tex-black outline-black dark:text-white dark:outline-white';
+        ? "text-white outline-white dark:text-black duration-1000 dark:outline-black"
+        : "tex-black outline-black dark:text-white dark:outline-white";
 
     return `${base} ${color}`;
   };
@@ -75,8 +75,9 @@ export default function LessonSelector() {
                 <tr
                   key={lesson.href}
                   ref={slug === lesson.slug ? lessonRef : null}
-                  className={`z-50 h-[41px] w-full cursor-pointer border-b-2 bg-white transition-colors duration-1000 dark:bg-black ${slug === lesson.slug ? 'font-bold' : ''
-                    }`}
+                  className={`z-50 h-[41px] w-full cursor-pointer border-b-2 bg-white transition-colors duration-1000 dark:bg-black ${
+                    slug === lesson.slug ? "font-bold" : ""
+                  }`}
                   onMouseEnter={() => handleMouseEnter(lesson.index)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -89,10 +90,11 @@ export default function LessonSelector() {
                     </Link>
 
                     <span
-                      className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 lg:duration-1000 dark:bg-white ${hoveredLesson === lesson.index
-                          ? 'w-50 lg:w-[22.2vw]'
-                          : 'w-0'
-                        }`}
+                      className={`absolute bottom-0 left-0 -z-10 h-full origin-left bg-black transition-all duration-500 lg:duration-1000 dark:bg-white ${
+                        hoveredLesson === lesson.index
+                          ? "w-50 lg:w-[22.2vw]"
+                          : "w-0"
+                      }`}
                     />
                   </td>
 
@@ -120,4 +122,4 @@ export default function LessonSelector() {
       )}
     </div>
   );
-}
+};

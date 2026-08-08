@@ -1,13 +1,13 @@
-import { useState, useMemo } from 'react';
-import { useDeferredValue } from 'react';
-import { useParams } from 'next/navigation';
-import { lessons } from '@/src/entities/lesson/model/lessons';
+import { useState, useMemo } from "react";
+import { useDeferredValue } from "react";
+import { useParams } from "next/navigation";
+import { lessons } from "@/src/entities/lesson";
 
 export function useLessonSearch() {
   const params = useParams();
   const slug = params?.slug;
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const deferredQuery = useDeferredValue(query);
 
